@@ -1,0 +1,48 @@
+[
+    {
+        "category": "Manufacturing",
+        "items": ["Construction materials","Electronics and Optics","Food and Beverage","Bakery & confectionery products","Beverages","Fish & fish products","Meat & meat products","Milk & dairy products","Other","Sweets & snack food"]
+      },
+      {
+        "category": "Furniture",
+        "items": ["Bathroom/sauna","Children’s room","Kitchen","Living room","Office","Other (Furniture)","Outdoor","Project furniture"]
+      },
+      {
+        "category": "Machinery",
+        "items": ["Machinery components","Machinery equipment/tools","Manufacture of machinery","Maritime","Aluminium and steel workboats","Boat/Yacht building","Ship repair and conversion","Metal structures","Other","Repair and maintenance service"]
+      },
+       {
+        "category": "Metalworking",
+        "items": ["Construction of metal structures","Houses and buildings","Metal products","Metal works","CNC-machining","Forgings, Fasteners","Gas, Plasma, Laser cutting","MIG, TIG, Aluminum welding"]
+      },
+        {
+        "category": "Plastic and Rubber",
+        "items": ["Packaging","Plastic goods","Plastic processing technology","Blowing","Moulding","Plastics welding and processing","Plastic profiles"]
+      },
+        {
+        "category": "Printing",
+        "items": ["Advertising","Book/Periodicals printing","Labelling and packaging printing","Textile and Clothing","Clothing","Textile","Wood","Other (Wood)","Wooden building materials","Wooden houses"]
+        },
+        {
+        "category": "Other",
+        "items": ["Creative industries","Creative industries","Energy technology"]
+      },
+        {
+        "category": "Service",
+        "items": ["Business services","Engineering","Information Technology and Telecommunications","Data processing, Web portals, E-marketing","Programming, Consultancy","Software, Hardware","Telecommunications"]
+      },
+       {
+        "category": "Other",
+        "items": ["Creative industries","Creative industries","Energy technology"]
+      },
+        {
+          "category":"ouris"
+        },
+        {
+          "category":"ranslatio"
+        },
+           {
+        "category": "Transport and Logistics",
+        "items": ["Air","Rail","Road","Water"]
+      }
+]
