@@ -2,18 +2,20 @@ import { useQuery } from '@tanstack/react-query'
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import UserUpdet from './UserUpdet';
 
 
 const Form = () => {
 
 // localState
 const [checkbox, setCheckBox] = useState(false)
+const [userdata, setUserData] = useState([])
 
 
   const { data: sectors } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/sectors')
+      const res = await fetch('https://form-server-shahedmridhaa.vercel.app/sectors')
       const data = res.json()
       return data
     },
@@ -22,7 +24,7 @@ const [checkbox, setCheckBox] = useState(false)
   const { data: userinfo, refetch } = useQuery({
     queryKey: ["userinfo"],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/usersinfo')
+      const res = await fetch('https://form-server-shahedmridhaa.vercel.app/usersinfo')
       const datas = res.json()
       return datas
     },
@@ -39,7 +41,7 @@ const [checkbox, setCheckBox] = useState(false)
       sectors: sectors,
     }
 
-    fetch('http://localhost:5000/userdata', {
+    fetch('https://form-server-shahedmridhaa.vercel.app/userdata', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -51,28 +53,17 @@ const [checkbox, setCheckBox] = useState(false)
         if (data.acknowledged) {
           refetch()
            toast.success('Successfully Added data')   
+           form.reset()
         }
       })
   }
  
-  // const handleEdit =(id)=>{
-  //   fetch(`https://localhost:5000/userposition/${id}`, {
-  //     method: 'PUT',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.acknowledged) {
-  //         toast.success('Post Edited Successfully')
-  //         refetch()
-  //       }
-  //     })
-  // }
-
+// ===handledelete===
   const handleDelete = (id) => {
     const agree = window.confirm("Do you sure you want to delete your details")
 
    if(agree){
-    fetch(`http://localhost:5000/usersinfo/${id}`, {
+    fetch(`https://form-server-shahedmridhaa.vercel.app/usersinfo/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())
@@ -86,6 +77,23 @@ const [checkbox, setCheckBox] = useState(false)
    }
      
   }
+
+  // ===handleEdit====
+  // const handleEdit = users =>{
+  //   console.log(users);
+  //       fetch(`http://localhost:5000/usersinfo/${users._id}`,{
+  //         method:'PUT',
+  //         body: JSON.stringify({users}),
+  //         headers: {
+  //          "Content-type": "application/json"
+  //        }
+  //       })
+  //      .then(res => res.json())
+  //      .then(data => console.log(data))
+  // }
+
+
+  
 
 
   return (
@@ -176,9 +184,9 @@ const [checkbox, setCheckBox] = useState(false)
             <td>{i+1}</td>
             <td>{users.userName}</td>
             <td>{users.sectors}</td>
-            <td className='text-green-700'><AiFillEdit/></td>
+            <td  className='text-green-700'><label htmlFor="updet-modal" ><AiFillEdit/></label>
+            </td>
             <td onClick={()=>handleDelete(users._id)} className='text-red-800'><AiFillDelete/></td>
-
           </tr>
         ) )
       }
@@ -186,12 +194,9 @@ const [checkbox, setCheckBox] = useState(false)
     </tbody>
   </table>
 </div>
-      
-
-
-     </section>
-
-      </div>
+    </section>
+    <UserUpdet sector={sectors}></UserUpdet>
+  </div>
     
        
    
